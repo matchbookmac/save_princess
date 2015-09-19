@@ -3,11 +3,11 @@ require 'rspec'
 
 describe 'Board' do
   before :each do
-    reader, @writer = IO.pipe
-    @writer.puts '3'
-    @writer.puts '--p'
-    @writer.puts '-m-'
-    @writer.puts '---'
+    reader, writer = IO.pipe
+    writer.puts '3'
+    writer.puts '--p'
+    writer.puts '-m-'
+    writer.puts '---'
     @board = Board.new reader
   end
 

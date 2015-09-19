@@ -5,7 +5,7 @@ class Board
 
   def initialize input = $stdin
     @input     = input
-    @grid_size = @input.gets.to_i
+    @grid_size = @input.gets.to_i || nil
     @grid      = build_grid
     @mario     = Character.new 'm', self
     @princess  = Character.new 'p', self
@@ -22,11 +22,15 @@ class Board
 
 private
   def build_grid
-    grid = Array.new @grid_size
-    (0...@grid_size).each do |i|
-      grid[i] = @input.gets.strip
+    if @grid_size
+      grid = Array.new @grid_size
+      (0...@grid_size).each do |i|
+        grid[i] = @input.gets.strip
+      end
+      grid
+    else
+      0
     end
-    grid
   end
 
   def next_move
@@ -36,17 +40,17 @@ private
     when (vertical_diff.eql? 0)
       if horizontal_diff > 0
         @mario.location[1] += 1
-        'RIGHT\n'
+        "RIGHT\n"
       else
         @mario.location[1] -= 1
-        'LEFT\n'
+        "LEFT\n"
       end
     when (vertical_diff > 0)
       @mario.location[0] += 1
-      'DOWN\n'
+      "DOWN\n"
     when (vertical_diff < 0)
       @mario.location[0] -= 1
-      'UP\n'
+      "UP\n"
     end
   end
 end

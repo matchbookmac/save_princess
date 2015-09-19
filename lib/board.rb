@@ -3,8 +3,9 @@ require 'character'
 class Board
   attr_reader :grid_size, :grid, :mario, :princess
 
-  def initialize
-    @grid_size = gets.to_i
+  def initialize input = $stdin
+    @input     = input
+    @grid_size = @input.gets.to_i
     @grid      = build_grid
     @mario     = Character.new 'm', self
     @princess  = Character.new 'p', self
@@ -23,7 +24,7 @@ private
   def build_grid
     grid = Array.new @grid_size
     (0...@grid_size).each do |i|
-      grid[i] = gets.strip
+      grid[i] = @input.gets.strip
     end
     grid
   end

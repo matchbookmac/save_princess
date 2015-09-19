@@ -5,6 +5,8 @@ class Board
   def initialize(grid_size, grid)
     @grid_size = grid_size
     @grid      = grid
+    @mario     = Character.new('m', self)
+    @princess  = Character.new('p', self)
   end
 end
 

@@ -9,19 +9,26 @@ class Board
     @princess  = Character.new('p', self)
   end
 
-  def displayPathtoPrincess
-    print @mario.get_location
-    print "\n"
-    print @princess.get_location
-    print "\n"
-    print next_move
-    print "\n"
-    print @mario.location
-    print "\n"
-    print @grid_size
-    print "\n"
-    print @grid
-    print "\n"
+  def displayPathtoPrincess(moves="")
+    if @mario.location.eql?(@princess.location)
+      print moves
+    else
+      moves += next_move
+      displayPathtoPrincess(moves)
+    end
+
+    # print @mario.location
+    # print "\n"
+    # print @princess.location
+    # print "\n"
+    # print next_move
+    # print "\n"
+    # print @mario.location
+    # print "\n"
+    # print @grid_size
+    # print "\n"
+    # print @grid
+    # print "\n"
   end
 
 private
@@ -49,7 +56,7 @@ private
       @mario.location[0] += 1
       "DOWN\n"
     when (vertical_diff.<(0))
-      @mario.location[1] -= 1
+      @mario.location[0] -= 1
       "UP\n"
     end
   end
@@ -65,14 +72,14 @@ class Character
   end
 
   def get_location
-    @location = []
+    location = []
     (0...@board.grid_size).each do |i|
       if @board.grid[i].include?(self.mark)
         location[0] = i
         location[1] = @board.grid[i].index(self.mark)
       end
     end
-    @location
+    location
   end
 end
 

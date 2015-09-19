@@ -10,7 +10,7 @@ class Board
     @princess  = Character.new 'p', self
   end
 
-  def displayPathtoPrincess moves=""
+  def displayPathtoPrincess moves=''
     if @mario.location.eql? @princess.location
       print moves
     else
@@ -35,17 +35,17 @@ private
     when (vertical_diff.eql? 0)
       if horizontal_diff > 0
         @mario.location[1] += 1
-        "RIGHT\n"
+        'RIGHT\n'
       else
         @mario.location[1] -= 1
-        "LEFT\n"
+        'LEFT\n'
       end
     when (vertical_diff > 0)
       @mario.location[0] += 1
-      "DOWN\n"
+      'DOWN\n'
     when (vertical_diff < 0)
       @mario.location[0] -= 1
-      "UP\n"
+      'UP\n'
     end
   end
 end

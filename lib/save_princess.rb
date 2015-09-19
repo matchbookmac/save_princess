@@ -8,6 +8,14 @@ class Board
   end
 end
 
+class Character
+  attr_reader :mark, :board
+
+  def initialize(mark, board)
+    @mark  = mark
+    @board = board
+  end
+end
 
 def displayPathtoPrincess(grid_size,grid)
   board = Board.new(grid_size, grid)

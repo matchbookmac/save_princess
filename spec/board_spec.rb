@@ -22,4 +22,16 @@ describe 'Board' do
       expect(@board.grid).to eql ['--p', '-m-', '---']
     end
   end
+
+  describe '.mario' do
+    it 'has a bot' do
+      expect(@board.mario.mark).to eql 'm'
+    end
+  end
+
+  describe '.princess' do
+    it 'has a target' do
+      expect(@board.princess.mark).to eql 'p'
+    end
+  end
 end

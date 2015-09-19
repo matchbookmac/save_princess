@@ -18,6 +18,10 @@ class Board
   end
 
   def displayPathtoPrincess
+    print @mario.location
+    print "\n"
+    print @princess.location
+    print "\n"
     print @grid_size
     print "\n"
     print @grid
@@ -31,6 +35,17 @@ class Character
   def initialize(mark, board)
     @mark  = mark
     @board = board
+  end
+
+  def location
+    location = []
+    (0...@board.grid_size).each do |i|
+      if @board.grid[i].include?(self.mark)
+        location[0] = i
+        location[1] = @board.grid[i].index(self.mark)
+      end
+    end
+    location
   end
 end
 

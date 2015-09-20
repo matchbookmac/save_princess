@@ -6,9 +6,7 @@ describe 'Character' do
   before :each do
     reader, writer = IO.pipe
     writer.puts '3'
-    writer.puts '--p'
-    writer.puts '-m-'
-    writer.puts '---'
+    writer.puts Array.grid 3
     board = Board.new reader
     @character = board.mario
   end

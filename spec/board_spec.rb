@@ -1,4 +1,5 @@
 require 'board'
+require 'grid'
 require 'rspec'
 
 describe 'Board' do
@@ -36,22 +37,10 @@ describe 'Board' do
   end
 end
 
-describe 'Board.displayPathtoPrincess' do
+describe 'Board.display_path_to_princess' do
   n = 3
-  until (n == 101)
-    grid = Array.new n
-    (0...n).each do |i|
-      grid[i] = ""
-      n.times do
-        grid[i] = grid[i] + "-"
-      end
-    end
-    # mario location
-    grid[n/2][n/2] = "m"
-    # princess location
-    princess_location_options = [[0,0],[0,n-1],[n-1,n-1],[n-1,0]]
-    p_loc = princess_location_options.sample
-    grid[p_loc[0]][p_loc[1]] = "p"
+  until (n == 101) do
+    grid = Array.grid n
     before do
       reader, writer = IO.pipe
       writer.puts grid

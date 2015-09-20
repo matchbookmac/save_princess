@@ -11,7 +11,7 @@ class Board
     @princess  = Character.new 'p', self
   end
 
-  def displayPathtoPrincess moves=''
+  def display_path_to_princess moves=''
     if @mario.location.eql? @princess.location
       print moves
     else

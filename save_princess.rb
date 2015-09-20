@@ -1,5 +1,5 @@
 #!/bin/ruby
-require 'board'
+require './lib/board'
 
 board = Board.new
-board.displayPathtoPrincess
+board.display_path_to_princesss

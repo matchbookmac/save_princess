@@ -1,4 +1,4 @@
-require 'character'
+require './lib/character'
 
 class Board
   attr_reader :grid_size, :grid, :mario, :princess
@@ -16,7 +16,7 @@ class Board
       print moves
     else
       moves += next_move
-      displayPathtoPrincess moves
+      display_path_to_princess moves
     end
   end
 

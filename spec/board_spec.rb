@@ -49,9 +49,9 @@ describe 'Board.displayPathtoPrincess' do
     # mario location
     grid[n/2][n/2] = "m"
     # princess location
-    # princess_location_options = [[0,0],[0,n-1],[n-1,n-1],[n-1,0]]
-    # princess_location = princess_location_options.sample
-    grid[n-1][n-1] = "p"
+    princess_location_options = [[0,0],[0,n-1],[n-1,n-1],[n-1,0]]
+    p_loc = princess_location_options.sample
+    grid[p_loc[0]][p_loc[1]] = "p"
     before do
       reader, writer = IO.pipe
       writer.puts grid
